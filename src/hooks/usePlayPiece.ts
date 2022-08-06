@@ -14,7 +14,7 @@ const testWin = (arr: number[]): boolean => winRE.test(arr.join(""));
   */
 const getDiagonalArray = (xPos: number, yPos: number, board: number[][], yAxisFlip: boolean = true): number[] => {
   
-  // Set X axis pointer 3 places before the last played move
+  // Set X axis pointer winning amount -1 places before the last played move
   // Depending on which direction (up or down) you want the array to
   // go "yAxisFlip" will be true or false (default true)
 
@@ -25,8 +25,8 @@ const getDiagonalArray = (xPos: number, yPos: number, board: number[][], yAxisFl
 
   const diagonalArray: number[] = []
 
-  // As only 4 need to connect to win
-  // Check -3 < last played position < + 3
+  // The pointer will scan the amount you need to win - 1
+  // Diagonally before and after the last played position
   for (let i: number = 0; i <= (winningAmount-1) * 2; i++){
     // If the current coordinates are undefined they must be beyond the borders
     // Or the move has not been made yet
