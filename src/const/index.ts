@@ -2,6 +2,7 @@ import { Player } from "types";
 
 export const boardCols = 7;
 export const boardRows = 6;
+export const winningAmount = 4;
 
 export const playerColor: Record<Player, string> = {
   1: "#f10000",

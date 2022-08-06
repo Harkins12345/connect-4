@@ -1,8 +1,9 @@
-import { boardRows } from "const";
+import { boardRows, winningAmount } from "const";
 import { useRecoilState } from "recoil";
 import { boardState, gameOverState, playerState } from "state";
 
-const testWin = (arr: number[]): boolean => /1{4}|2{4}/.test(arr.join(""));
+const winRE = new RegExp(`1{${winningAmount}}|2{${winningAmount}}`)
+const testWin = (arr: number[]): boolean => winRE.test(arr.join(""));
 
 /**
   * Returns a diagonal array from if one is present in the game board
@@ -18,15 +19,15 @@ const getDiagonalArray = (xPos: number, yPos: number, board: number[][], yAxisFl
   // go "yAxisFlip" will be true or false (default true)
 
   const pointer = {
-    x: xPos - 3,
-    y: yAxisFlip ? yPos - 3 : yPos + 3
+    x: xPos - (winningAmount-1),
+    y: yAxisFlip ? yPos - (winningAmount-1) : yPos + (winningAmount-1)
   }
 
   const diagonalArray: number[] = []
 
   // As only 4 need to connect to win
   // Check -3 < last played position < + 3
-  for (let i: number = 0; i <= 6; i++){
+  for (let i: number = 0; i <= (winningAmount-1) * 2; i++){
     // If the current coordinates are undefined they must be beyond the borders
     // Or the move has not been made yet
     if (board[pointer.x] &&
