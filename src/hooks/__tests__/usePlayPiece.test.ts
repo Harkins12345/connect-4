@@ -54,6 +54,22 @@ test("should win with 4 in a row horizontally", () => {
   assertGame(1, true, [[1], [1], [1], [1], [1], [2], [2, 2, 2]]);
 });
 
+test("should win with 4 in a row diagonally, upwards to the right", () => {
+  const { play, assertGame } = render();
+
+  [0, 1, 1, 2, 2, 3, 2, 3, 2, 3, 3 ].forEach(play);
+
+  assertGame(1, true, [[1], [2, 1], [2, 1, 1, 1], [2, 2, 2, 1], [], [], []]);
+})
+
+test("should win with 4 in a row diagonally, downwards to the right", () => {
+  const { play, assertGame } = render();
+
+  [6, 5, 5, 4, 3, 4, 4, 2, 3, 3, 3].forEach(play);
+
+  assertGame(1, true, [[], [], [2], [1, 1, 2, 1], [2, 2, 1], [2, 1], [1]]);
+})
+
 test("should not play a piece when the column is full", () => {
   const { play, assertGame } = render();
 
@@ -65,3 +81,4 @@ test("should not play a piece when the column is full", () => {
   // No change because column is full
   assertGame(1, false, [[1, 2, 1, 2, 1, 2], [], [], [], [], [], []]);
 });
+
