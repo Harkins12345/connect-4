@@ -22,13 +22,13 @@ const render = () => {
     play: (col: number) => {
       act(() => {
         result.current.play(col);
-      });
+      })
     },
     assertGame: (player: Player, gameOver: boolean, board: Board) => {
       expect(result.current.board).toEqual(board);
       expect(result.current.player).toEqual(player);
       expect(result.current.gameOver).toEqual(gameOver);
-    },
+    }
   };
 };
 
