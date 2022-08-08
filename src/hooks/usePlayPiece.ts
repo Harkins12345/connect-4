@@ -83,7 +83,7 @@ const usePlayPiece = () => {
       setPlayerTurn(player === 1 ? 2 : 1);
     }
 
-    setBoard(newBoard);
+    setBoard((oldBoard) => [...newBoard]);
   };
 };
 

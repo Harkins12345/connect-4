@@ -10,6 +10,7 @@ const GameControls: FC = () => {
   const resetGameOver = useResetRecoilState(gameOverState);
 
   const handleReset = () => {
+    console.log('resetting')
     resetBoard();
     resetPlayer();
     resetGameOver();

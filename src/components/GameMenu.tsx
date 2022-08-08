@@ -12,8 +12,10 @@ import {
   Input,
   useDisclosure
 } from "@chakra-ui/react";
+
 import { FC, useEffect } from "react";
 import { useRecoilState, useSetRecoilState } from "recoil";
+
 import {
   boardState,
   gameOverState,
@@ -38,7 +40,6 @@ const GameMenu: FC = () => {
   const setPlayerTwoNameState = useSetRecoilState(playerTwoName);
 
   const [PlayerOneColorState, setPlayerOneColorState] = useRecoilState(playerOneColor);
-
   const [PlayerTwoColorState, setPlayerTwoColorState] = useRecoilState(playerTwoColor);
 
   const { onClose } = useDisclosure()
@@ -119,7 +120,7 @@ const GameMenu: FC = () => {
         break
       }
       default: {
-        setPlayerTwoColorState('#f10000')
+        setPlayerTwoColorState('#0010f1')
         break
       }
     }
