@@ -199,6 +199,7 @@ const GameMenu: FC = () => {
 
               <FormLabel>Set Player 1's color</FormLabel>
               <Select required placeholder="Select Player 1's color" onChange={setPlayerOneColor}>
+                {/* Disable if the other player has already selected the color */}
                 <option disabled={PlayerTwoColorState === "#f10000"} value={'1'}>Red</option>
                 <option disabled={PlayerTwoColorState === "#f18900"} value={'2'}>Orange</option>
                 <option disabled={PlayerTwoColorState === "#e5f100"} value={'3'}>Yellow</option>
@@ -229,6 +230,7 @@ const GameMenu: FC = () => {
                 <option value={'4'}>10 x 12</option>
               </Select>
 
+              {/* Can change to connect 3/4/5 */}
               <FormLabel>Amount to connect</FormLabel>
               <Select required placeholder='Connect...' onChange={setWinningAmount}>
                 <option value={'1'}>3</option>
