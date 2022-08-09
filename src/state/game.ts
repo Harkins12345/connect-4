@@ -34,6 +34,14 @@ export const gameOverState = atom<boolean>({
   ]
 });
 
+export const boardState = atom<Board>({
+  key: "boardState",
+  default: Array(7).fill([]),
+  effects: [
+    localStorageEffect('boardState'),
+  ]
+});
+
 // Board Size and winning amount
 
 export const boardCols = atom<number>({
@@ -107,11 +115,3 @@ export const playerTwoName = atom<string>({
 //   key: "botColor",
 //   default: "#ece100",
 // });
-
-export const boardState = atom<Board>({
-  key: "boardState",
-  default: Array(7).fill([]),
-  effects: [
-    localStorageEffect('boardState'),
-  ]
-});
