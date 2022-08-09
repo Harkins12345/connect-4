@@ -4,7 +4,7 @@ import { boardState, boardRows, gameOverState, playerState, winningAmount } from
 const testWin = (arr: number[], RE:RegExp): boolean => RE.test(arr.join(""));
 
 /**
-  * Returns a diagonal array from if one is present in the game board
+  * Returns a diagonal array from the last played piece, if one is present in the game board
   * @param xPos - X axis value of the last played piece
   * @param yPos - Y axis value of the last played piece
   * @param board - Nested number arrays making up the new board
@@ -12,7 +12,7 @@ const testWin = (arr: number[], RE:RegExp): boolean => RE.test(arr.join(""));
   */
 const getDiagonalArray = (xPos: number, yPos: number, board: number[][], wAmount: number, yAxisFlip: boolean = true): number[] => {
   
-  // Set X axis pointer winning amount -1 places before the last played move
+  // Set X axis pointer (winning amount -1) places before the last played move
   // Depending on which direction (up or down) you want the array to
   // go "yAxisFlip" will be true or false (default true)
 
